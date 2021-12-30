@@ -118,7 +118,7 @@ def animate(i):
 
 
 ani = animation.FuncAnimation(
-    fig, animate, len(t_List), interval=dt*1000, blit=True)
+    fig, animate, len(t_List), interval=dt*100, blit=True)
 plt.show()
 
 # fig, value = matplotlib.pyplot.subplots()
