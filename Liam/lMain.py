@@ -17,7 +17,7 @@ m2 = 1
 l1 = 1
 l2 = 1
 
-theta10 = pi/3
+theta10 = -pi/6
 theta20 = pi/2
 
 omega10 = 0
@@ -43,7 +43,7 @@ test1 = a1(1,1,1,1)
 test2 = a2(1,1,1,1)
 
 t = 0
-tf = 10
+tf = 5
 dt = 0.01
 
 
@@ -86,7 +86,7 @@ y1 = -l1*cos(theta1_List)
 x2 = l2*sin(theta2_List) + x1
 y2 = -l2*cos(theta2_List) + y1
 
-history_len = 500  # how many trajectory points to display
+history_len = 1000  # how many trajectory points to display
 
 fig = plt.figure(figsize=(5, 4))
 ax = fig.add_subplot(autoscale_on=False, xlim=(-(l1+l2), (l1+l2)), ylim=(-(l1+l2), (l1+l2)))
@@ -94,7 +94,7 @@ ax.set_aspect('equal')
 ax.grid()
 
 line, = ax.plot([], [], 'o-', lw=2)
-trace, = ax.plot([], [], '.-', lw=1, ms=2)
+trace, = ax.plot([], [], '.-', lw=2, ms=2)
 time_template = 'time = %.1fs'
 time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 history_x, history_y = deque(maxlen=history_len), deque(maxlen=history_len)
@@ -112,13 +112,12 @@ def animate(i):
     history_y.appendleft(thisy[2])
 
     line.set_data(thisx, thisy)
-    trace.set_data(history_x, history_y)
+    trace.set_data(history_x, history_y)  
     time_text.set_text(time_template % (i*dt))
+    fig.suptitle('Double Pendulum - Euler\'s Method', fontsize=12)
     return line, trace, time_text
 
-
-ani = animation.FuncAnimation(
-    fig, animate, len(t_List), interval=dt*100, blit=True)
+ani = animation.FuncAnimation(fig, animate, len(t_List), interval=dt*1000, blit=True)
 plt.show()
 
 # fig, value = matplotlib.pyplot.subplots()
