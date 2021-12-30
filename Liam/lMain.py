@@ -120,10 +120,19 @@ def animate(i):
 ani = animation.FuncAnimation(fig, animate, len(t_List), interval=dt*1000, blit=True)
 plt.show()
 
+# Uncomment to save a gif 
+
+#ani.save('myAnimation.gif', writer='imagemagick', fps=30) #
+
+# Theta vs t plot
+
 # fig, value = matplotlib.pyplot.subplots()
 # value.plot(t_List, theta1_List, t_List, theta2_List)
 # #value.axvline(S)
-# matplotlib.pyplot.show()
+# matplotlib.p
+# yplot.show()
+
+# Phase PLan plot
 
 # fig, value = matplotlib.pyplot.subplots()
 # value.plot(theta1_List, omega1_list,theta2_List, omega2_list,)
