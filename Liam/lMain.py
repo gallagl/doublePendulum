@@ -117,12 +117,12 @@ def animate(i):
     fig.suptitle('Double Pendulum - Euler\'s Method', fontsize=12)
     return line, trace, time_text
 
-ani = animation.FuncAnimation(fig, animate, len(t_List), interval=dt*1000, blit=True)
+ani = animation.FuncAnimation(fig, animate, len(t_List), interval=0.1)
 plt.show()
 
 # Uncomment to save a gif 
 
-#ani.save('myAnimation.gif', writer='imagemagick', fps=30) #
+ani.save('myAnimation.gif', writer='imagemagick', fps=30) #
 
 # Theta vs t plot
 
